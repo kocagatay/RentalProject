@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Business.Validationrules.FluentValidation
 {
-    public class RentalValidation : AbstractValidator<Rental>
+    public class RentalValidator : AbstractValidator<Rental>
     {
-        public RentalValidation()
+        public RentalValidator()
         {
-            RuleFor(r => r.RentalId).NotEmpty();
-            RuleFor(r => r.CarId).NotEmpty();
-            RuleFor(r => r.CustomerId).NotEmpty();
-            RuleFor(r => r.RentDate).NotEmpty();
-            RuleFor(r => r.ReturnDate).NotEmpty();
+            //RuleFor(r => r.RentalId).NotEmpty();
+            //RuleFor(r => r.CarId).NotEmpty();
+            //RuleFor(r => r.CustomerId).NotEmpty();
+            //RuleFor(r => r.RentDate).NotEmpty();
+            //RuleFor(r => r.ReturnDate).NotEmpty();
         }
     }
 }

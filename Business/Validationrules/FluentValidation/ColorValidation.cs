@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Business.Validationrules.FluentValidation
 {
-    public class ColorValidation : AbstractValidator<Color>
+    public class ColorValidator : AbstractValidator<Color>
     {
-        public ColorValidation()
+        public ColorValidator()
         {
             RuleFor(co => co.ColorId).NotEmpty();
             RuleFor(co => co.ColorName).NotEmpty();

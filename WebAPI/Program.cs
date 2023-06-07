@@ -13,7 +13,14 @@ using Core.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200").AllowAnyHeader();
+        });
+});
 
 
 // Add services to the container.
@@ -81,11 +88,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseCors();
 
 app.UseAuthorization();
+
 app.UseAuthentication();
 
 app.MapControllers();

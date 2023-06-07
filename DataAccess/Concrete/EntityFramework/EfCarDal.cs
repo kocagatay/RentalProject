@@ -6,6 +6,8 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, RentalDbContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             using (RentalDbContext context = new RentalDbContext())
             {
@@ -35,7 +37,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  Description = c.Description,
                                  ImagePath = (from ci in context.CarImages where ci.CarId == c.CarId select ci.ImagePath).FirstOrDefault()
                              };
-                return result.ToList();
+                return filter == null
+                 ? result.ToList()
+                 : result.Where(filter).ToList();
             }
         }
 
