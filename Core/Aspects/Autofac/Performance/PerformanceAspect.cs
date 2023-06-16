@@ -16,7 +16,7 @@ namespace Core.Aspects.Autofac.Performance
         private int _interval;
         private Stopwatch _stopwatch; //Timer
 
-        public PerformanceAspect(int interval)
+        public PerformanceAspect(int interval) //İNTERVAL METHODUN ÜSTÜNDE VERDİĞİMİZ SANİYEYİ KAST EDER.
         {
             _interval = interval;
             _stopwatch = ServiceTool.ServiceProvider.GetService<Stopwatch>();

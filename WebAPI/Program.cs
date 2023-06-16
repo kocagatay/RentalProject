@@ -24,6 +24,7 @@ builder.Services.AddCors(options =>
 
 
 // Add services to the container.
+//Autofac'i implemente ediyoruz.
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(builder =>
     {
@@ -31,6 +32,8 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     });
 
 builder.Services.AddControllers();
+
+//ICOREMODULE ÝÇÝN EKLÝYORUZ
 builder.Services.AddDependencyResolvers(new ICoreModule[]
 {
     new CoreModule()
@@ -41,6 +44,7 @@ builder.Services.AddHttpContextAccessor();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+//token configuration için ekliyoruz
 TokenOptions? tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -56,7 +60,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-
+//JWT ÝÇÝN KULLANIYORUZ
 builder.Services.AddSwaggerGen(opt =>
 {
     opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -87,7 +91,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+//CORE'DAKÝ MÝDDLEWARE ÝÇÝN
 app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();

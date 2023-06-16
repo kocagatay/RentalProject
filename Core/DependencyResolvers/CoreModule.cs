@@ -14,10 +14,11 @@ namespace Core.DependencyResolvers
     {
         public void Load(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddMemoryCache(); //Redis'e geçersen buna gerek kalmıyor.
+            serviceCollection.AddMemoryCache(); //BURASI MEMORYCACHEMANAGER'DAKİ İNJECTİON İÇİN //Redis'e geçersen buna gerek kalmıyor.
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
-            serviceCollection.AddSingleton<Stopwatch>();
+            //serviceCollection.AddSingleton<ICacheManager, RedisCacheManager>(); REDİSE GEÇMEK İSTERSEN BUNU YAZIYOSUN MESELA
+            serviceCollection.AddSingleton<Stopwatch>(); //PERFORMANCEASPECT İÇİN
         }
     }
 }

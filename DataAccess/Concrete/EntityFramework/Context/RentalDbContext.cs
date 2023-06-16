@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Concrete;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
 {
     public class RentalDbContext : DbContext
     {
+        //Data Source = DESKTOP - URTSVHI\MSSQLSERVER1; Initial Catalog = RentCar; Integrated Security = True
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=RentalDb;Trusted_Connection=true");
@@ -29,3 +31,4 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<Payment> Payments { get; set; }
     }
 }
+        

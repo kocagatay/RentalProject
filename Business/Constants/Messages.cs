@@ -70,8 +70,8 @@ namespace Business.Constants
         public static string UserRegistered = "Kayıt olundu";
         public static string UserNotFound = "Kullanıcı bulunamadı";
         public static string UserAlreadyExists = "Kullanıcı mevcut";
-
-
+        public static string UserAdded ="Kullanıcı eklendi";
+        public static string ClaimsListed = "Claimler listelendi";
 
 
         public static string ThisCarIsAlreadyRentedInSelectedDateRange = "Araç bu tarihlerde kiralanmış durumda";
@@ -84,5 +84,6 @@ namespace Business.Constants
         public static string PayIsSuccessfull = "Ödeme başarılı";
         public static string CardInformationIsIncorrect = "Kart bilgisi hatalı";
         public static string PaymentUpdated = "Ödeme güncellendi";
+        
     }
 }

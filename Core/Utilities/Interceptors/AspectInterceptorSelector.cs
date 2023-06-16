@@ -17,6 +17,8 @@ namespace Core.Utilities.Interceptors
             var methodAttributes = type.GetMethod(method.Name)
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
             classAttributes.AddRange(methodAttributes);
+            //PERFORMANCE ASPECT'İ ADDRANGE GİBİ BURAYA EKLERSEN MEVCUTTA VE İLERDE EKLEYECEĞİN BÜTÜN METODLARA EKLENMİŞ OLUR
+            //VE BU SAYEDE  BÜTÜN PROJENİN PERFORMANSINI KONTROL ETMİŞ OLURSUN
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();
         }

@@ -66,7 +66,7 @@ namespace Business.Concrete
         //    return new SuccessDataResult<List<CreditCard>>(userCreditCards, Messages.CustomersCreditCardsListed);
         //}
 
-        //[TransactionScopeAspect]
+
         //public IResult SaveCustomerCreditCard(CustomerCreditCardModel customerCreditCardModel)
         //{
         //    var creditCardResult = _creditCardService.Get(customerCreditCardModel.CreditCard.CardNumber,
@@ -104,7 +104,7 @@ namespace Business.Concrete
         //    return new ErrorResult(Messages.CustomerCreditCardFailedToSave);
         //}
 
-        //[TransactionScopeAspect]
+    
         //public IResult DeleteCustomerCreditCard(CustomerCreditCardModel customerCreditCardModel)
         //{
         //    var creditCardResult = _creditCardService.Get(customerCreditCardModel.CreditCard.CardNumber,
